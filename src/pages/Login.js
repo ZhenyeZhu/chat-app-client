@@ -20,7 +20,7 @@ export default function Login(props) {
     username: "",
     password: "",
   });
-  // const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
   const [Userlogin, { loading }] = useLazyQuery(USER_LOGIN, {
     onError: (err) => console.log(err),
