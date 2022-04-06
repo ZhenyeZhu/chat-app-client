@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthDispatch } from "../context/auth";
 
 export default function Login(props) {
-  let navigate = useNavigate();
   const USER_LOGIN = gql`
     query login($username: String!, $password: String!) {
       login(username: $username, password: $password) {

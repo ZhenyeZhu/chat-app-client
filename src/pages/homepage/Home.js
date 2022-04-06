@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { Row, Col, Button, Image } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Row, Button } from "react-bootstrap";
 import { gql, useSubscription } from "@apollo/client";
 
 import { useAuthDispatch, useAuthState } from "../../context/auth";
@@ -22,7 +21,6 @@ const NEW_MESSAGE = gql`
 `;
 
 export default function Home() {
-  let navigate = useNavigate();
   const authDispatch = useAuthDispatch();
   const messageDispatch = useMessageDispatch();
 
@@ -47,7 +45,7 @@ export default function Home() {
         },
       });
     }
-  }, [messageError, messageData]);
+  }, [messageError, messageData, messageDispatch, user.username]);
 
   const logout = () => {
     authDispatch({ type: "LOGOUT" });
