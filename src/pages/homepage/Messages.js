@@ -35,20 +35,14 @@ export default function Messages() {
   const [content, setContent] = useState("");
 
   const selectedUser = users?.find((u) => u.selected === true);
+  let selectedUserName = selectedUser ? selectedUser.username : null;
+
   const messages = selectedUser?.messages;
 
   const [getMessages, { loading: messagesLoading, data: messagesData }] =
     useLazyQuery(GET_MESSAGES);
 
   const [sendMessage] = useMutation(SEND_MESSAGE, {
-    // onCompleted: (data) =>
-    //   dispatch({
-    //     type: "ADD_MESSAGE",
-    //     payload: {
-    //       username: selectedUser.username,
-    //       message: data.sendMessage,
-    //     },
-    //   }),
     onError: (err) => console.log(err),
   });
 
@@ -63,12 +57,12 @@ export default function Messages() {
       dispatch({
         type: "SET_USER_MESSAGES",
         payload: {
-          username: selectedUser.username,
+          username: selectedUserName,
           messages: messagesData.getMessages,
         },
       });
     }
-  }, [messagesData, dispatch, selectedUser]);
+  }, [messagesData, dispatch, selectedUserName]);
 
   const submitMessage = (e) => {
     e.preventDefault();
