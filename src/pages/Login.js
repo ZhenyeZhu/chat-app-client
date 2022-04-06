@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { gql, useLazyQuery } from "@apollo/client";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useAuthDispatch } from "../context/auth";
 

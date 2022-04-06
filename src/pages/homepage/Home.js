@@ -45,7 +45,7 @@ export default function Home() {
         },
       });
     }
-  }, [messageError, messageData, messageDispatch, user.usernamesome]);
+  }, [messageError, messageData, messageDispatch, user.username]);
 
   const logout = () => {
     authDispatch({ type: "LOGOUT" });

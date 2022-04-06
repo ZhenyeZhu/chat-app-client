@@ -38,7 +38,7 @@ export default function Users() {
     if (data) {
       dispatch({ type: "SET_USERS", payload: data.getUsers });
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   let usersMarkup;
   if (!users || loading) {
