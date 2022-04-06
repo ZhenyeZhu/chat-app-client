@@ -35,7 +35,6 @@ export default function Messages() {
   const [content, setContent] = useState("");
 
   const selectedUser = users?.find((u) => u.selected === true);
-  let selectedUserName = selectedUser ? selectedUser.username : null;
 
   const messages = selectedUser?.messages;
 
@@ -57,12 +56,13 @@ export default function Messages() {
       dispatch({
         type: "SET_USER_MESSAGES",
         payload: {
-          username: selectedUserName,
+          username: selectedUser.username,
           messages: messagesData.getMessages,
         },
       });
     }
-  }, [messagesData, dispatch, selectedUserName]);
+    //eslint-disable-next-line
+  }, [messagesData, dispatch]);
 
   const submitMessage = (e) => {
     e.preventDefault();
