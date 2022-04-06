@@ -68,7 +68,7 @@ export default function Messages() {
         },
       });
     }
-  }, [messagesData, dispatch, selectedUser.username]);
+  }, [messagesData, dispatch, selectedUser]);
 
   const submitMessage = (e) => {
     e.preventDefault();
