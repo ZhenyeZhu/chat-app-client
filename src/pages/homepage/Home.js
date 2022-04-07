@@ -51,7 +51,7 @@ export default function Home() {
 
   const logout = () => {
     authDispatch({ type: "LOGOUT" });
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
