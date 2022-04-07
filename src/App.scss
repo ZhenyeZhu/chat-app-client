@@ -23,6 +23,18 @@ body {
   }
 }
 
+.users-box {
+  height: 450px;
+  overflow-y: scroll;
+
+
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .message-input::placeholder{
   color: rgba(0,0,0,0.5)
 }

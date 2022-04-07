@@ -9,6 +9,7 @@ import ApolloProvider from "./ApolloProvider";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/homepage/Home";
+import Video from "./pages/homepage/Video"
 
 import { AuthProvider } from "./context/auth";
 import { MessageProvider } from "./context/message";
@@ -44,6 +45,13 @@ function App() {
                   path="/register"
                   element={
                     <DynamicRoute path="/register" element={<Register />} guest />
+                  }
+                />
+
+<Route
+                  path="/video"
+                  element={
+                    <DynamicRoute path="/video" element={<Video />} authenticated />
                   }
                 />
               </Routes>

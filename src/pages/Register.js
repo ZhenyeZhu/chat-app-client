@@ -11,12 +11,14 @@ export default function Register(props) {
       $email: String!
       $password: String!
       $confirmPassword: String!
+      $imageUrl: String
     ) {
       register(
         username: $username
         email: $email
         password: $password
         confirmPassword: $confirmPassword
+        imageUrl: $imageUrl
       ) {
         username
         email
@@ -44,6 +46,7 @@ export default function Register(props) {
     username: "",
     password: "",
     confirmPassword: "",
+    imageUrl: "",
   });
 
   return (
@@ -112,6 +115,21 @@ export default function Register(props) {
                 })
               }
               placeholder="******"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label className={errors.imageUrl && "text-danger"}>
+              {errors.imageUrl ?? "Avatar URL (optional)"}
+            </Form.Label>
+            <Form.Control
+              type="imageUrl"
+              value={variables.imageUrl}
+              className={errors.imageUrl && "is-invalid"}
+              onChange={(e) =>
+                setVariables({ ...variables, imageUrl: e.target.value })
+              }
+              placeholder="Enter imageUrl"
             />
           </Form.Group>
 

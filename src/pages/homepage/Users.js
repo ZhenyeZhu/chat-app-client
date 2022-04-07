@@ -51,7 +51,7 @@ export default function Users() {
       return (
         <div
           role="button"
-          className={classNames("user-div d-flex p-3", {
+          className={classNames("user-div d-flex p-2", {
             "bg-white": selected,
           })}
           key={user.username}
@@ -65,12 +65,12 @@ export default function Users() {
               "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
             }
             roundedCircle
-            className="mr-2"
+            className="m-2"
             style={{ width: 50, height: 50, objectFit: "cover" }}
           />
-          <div className="d-none d-md-block ml-2">
-            <p className="text-success">{user.username}</p>
-            <p className="font-weight-light">
+          <div className="d-none d-md-block m-2 overflow-hidden">
+            <p className="text-success mb-1">{user.username}</p>
+            <p className="font-weight-light mb-1 text-nowrap">
               {user.latestMessage
                 ? user.latestMessage.content
                 : "You are now connected!"}
@@ -82,7 +82,7 @@ export default function Users() {
   }
 
   return (
-    <Col xs={2} md={4} className="p-0 bg-secondary">
+    <Col xs={2} md={4} className="users-box p-0 bg-secondary">
       {usersMarkup}
     </Col>
   );

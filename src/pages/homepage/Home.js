@@ -2,6 +2,8 @@ import React, { Fragment, useEffect } from "react";
 import { Row, Button } from "react-bootstrap";
 import { gql, useSubscription } from "@apollo/client";
 
+import { Link } from "react-router-dom";
+
 import { useAuthDispatch, useAuthState } from "../../context/auth";
 import { useMessageDispatch } from "../../context/message";
 
@@ -49,7 +51,7 @@ export default function Home() {
 
   const logout = () => {
     authDispatch({ type: "LOGOUT" });
-    window.location.href = "/";
+    window.location.href = "/login";
   };
 
   return (
@@ -58,6 +60,11 @@ export default function Home() {
         <Button variant="link" className="w-auto" onClick={logout}>
           Logout
         </Button>
+        <li>
+          <Link className="w-auto" to="/video" target="_blank">
+            video
+          </Link>
+        </li>
       </Row>
       <Row className="bg-white">
         <Users />

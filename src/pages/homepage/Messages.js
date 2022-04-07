@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, useState } from "react";
+import React, { useEffect, Fragment, useState} from "react";
 import { gql, useLazyQuery, useMutation } from "@apollo/client";
 import { Col, Form } from "react-bootstrap";
 
@@ -34,7 +34,7 @@ export default function Messages() {
   const dispatch = useMessageDispatch();
   const [content, setContent] = useState("");
 
-  const selectedUser = users?.find((u) => u.selected === true);
+  let selectedUser = users?.find((u) => u.selected === true);
 
   const messages = selectedUser?.messages;
 
@@ -53,6 +53,7 @@ export default function Messages() {
 
   useEffect(() => {
     if (messagesData) {
+      console.log(selectedUser.username);
       dispatch({
         type: "SET_USER_MESSAGES",
         payload: {
@@ -92,12 +93,18 @@ export default function Messages() {
       </Fragment>
     ));
   } else if (messages.length === 0) {
-    selectedChatMarkup = <p>You are now connected! send your first message!</p>;
+    selectedChatMarkup = (
+      <p className="info-text">
+        You are now connected! send your first message!
+      </p>
+    );
   }
+
+
 
   return (
     <Col xs={10} md={8}>
-      <div className="messages-box d-flex flex-column-reverse">
+      <div className="messages-box d-flex flex-column-reverse mb-1">
         {selectedChatMarkup}
       </div>
       <div>
