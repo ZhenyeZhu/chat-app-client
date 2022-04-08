@@ -38,7 +38,7 @@ export default function Video() {
   const call = (remotePeerId) => {
     var getUserMedia =
       navigator.getUserMedia ||
-      navigator.webkitGetUserMedia ||
+      navigator.webkitGetUserMedia || 
       navigator.mozGetUserMedia;
 
     getUserMedia({ video: true, audio: true }, (mediaStream) => {
@@ -55,7 +55,7 @@ export default function Video() {
   };
 
   return (
-    <div className="App">
+    <div>
       <h1>Current user id is {peerId}</h1>
       <input
         type="text"
@@ -63,12 +63,15 @@ export default function Video() {
         onChange={(e) => setRemotePeerIdValue(e.target.value)}
       />
       <button onClick={() => call(remotePeerIdValue)}>Call</button>
-      <div>
-        <video ref={currentUserVideo} />
+      <div className="d-flex flex-row">
+        <div className="p-2">
+            <video ref={currentUserVideo} />
+        </div>
+        <div className="p-2">
+            <video ref={remoteVideo} />
+        </div>
       </div>
-      <div>
-        <video ref={remoteVideo} />
-      </div>
+      
     </div>
   );
 }

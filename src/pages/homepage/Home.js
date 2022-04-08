@@ -56,15 +56,29 @@ export default function Home() {
 
   return (
     <Fragment>
-      <Row className="bg-white justify-content-around mb-1">
-        <Button variant="link" className="w-auto" onClick={logout}>
+      <h1 className="mb-4 text-center">
+        {" "}
+        Hi{" "}
+        <span className="text-decoration-underline fw-bold text-warning">
+          {user.username}
+        </span>
+        , Let's Chat!
+      </h1>
+      <Row className="bg-white justify-content-evenly mb-1">
+        <Link
+          className="w-auto d-flex text-decoration-none align-items-center fw-bolder text-info"
+          to="/video"
+          target="_blank"
+        >
+          video
+        </Link>
+        <Button
+          variant="link"
+          className="w-auto text-decoration-none fw-bolder text-info"
+          onClick={logout}
+        >
           Logout
         </Button>
-        <li>
-          <Link className="w-auto" to="/video" target="_blank">
-            video
-          </Link>
-        </li>
       </Row>
       <Row className="bg-white">
         <Users />

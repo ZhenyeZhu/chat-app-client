@@ -49,6 +49,10 @@ const messageReducer = (state, action) => {
 
       usersCopy[userIndex] = newUser;
 
+      usersCopy.sort(function (x, y) {
+        return x.username === username ? -1 : y.username === username ? 1 : 0;
+      });
+
       return {
         ...state,
         users: usersCopy,
